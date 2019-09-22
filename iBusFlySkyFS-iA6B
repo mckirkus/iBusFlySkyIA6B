@@ -1,0 +1,54 @@
+// Test Code for a FlySky FS-i6X transmitter and FS-iA6B receiver (10 channel)
+// Grab the IbusBM library from >Tools>Manage Libraries
+// Tested with Uno R3 and R3+ and is much less complex (one wire for all channels) and error prone than orginal PWM setup
+// Use port 0 for serial communication on Uno R3, other boards have multiple serial ports.  Connect to uppermost/rightmost iBus pin on FS-iA6B receiver
+// Note that because you're sharing a serial port with USB on the Uno, you may have to disconnect the cable from pin 0 and restart the Arduino IDE (and board) to get the upload working.
+// Also note that in code channels start at zero but on the receiver they start at one, hence offset.
+
+#include <IBusBM.h>
+IBusBM IBus;    // IBus object
+
+int val1;  // Channel 0 Right Stick - Left/Right (all values 1000->2000)
+int val2;  // Channel 1 Right Stick - Up/Down
+int val3;  // Channel 2 Left Stick - Up/Down (throttle for planes)
+int val4;  // Channel 3 Left Stick - Right/Left
+int val5;  // Channel 4 Upper Left Knob - CounterCW to Clockwise
+int val6;  // Channel 5 Upper Right Knob - CounterCW to Clockwise
+int val7;  // Channel 6 ??
+int val8;  // Channel 7 ??
+int val9;  // Channel 8 ??
+int val10;  // Channel 9 ??
+
+
+void setup() {
+  IBus.begin(Serial);    // iBUS object connected to serial0 RX pin
+  Serial.begin(115200);           // set up Serial library at 9600 bps 
+}
+
+void loop() {
+
+  val1 = IBus.readChannel(0); // get latest value for servo channel 1
+  val2 = IBus.readChannel(1);
+  val3 = IBus.readChannel(2);
+  val4 = IBus.readChannel(3);
+  val5 = IBus.readChannel(4);
+  val6 = IBus.readChannel(5);
+  val7 = IBus.readChannel(6);
+  val8 = IBus.readChannel(7);
+  val9 = IBus.readChannel(8);
+  val10 = IBus.readChannel(9);
+  
+  Serial.println(val1);
+  Serial.println(val2);
+  Serial.println(val3);
+  Serial.println(val4);
+  Serial.println(val5);
+  Serial.println(val6);
+  Serial.println(val7);
+  Serial.println(val8);
+  Serial.println(val9);
+  Serial.println(val10);
+  Serial.println("End of channel read");
+  
+  delay(60);
+}
