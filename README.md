@@ -1,5 +1,8 @@
 # iBusFlySkyIA6B
 Sample code for FS-IA6B (and possibly other receivers) for the Arduino Uno (and possibly other boards)
+Using Bart Mellink's IBusBM library version 1.1.1
+https://github.com/bmellink/IBusBM
+Grab the IbusBM library from >Tools>Manage Libraries
 
 // Test Code for a FlySky FS-i6X transmitter and FS-iA6B receiver (10 channel)
 
@@ -10,5 +13,3 @@ Sample code for FS-IA6B (and possibly other receivers) for the Arduino Uno (and 
 // Note that because you're sharing a serial port with USB on the Uno, you may have to disconnect the cable from pin 0 and restart the Arduino IDE (and board) to get the upload working.
 
 // Also note that in code channels start at zero but on the receiver they start at one, hence offset.
-
-// Grab the IbusBM library from >Tools>Manage Libraries
