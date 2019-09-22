@@ -4,7 +4,7 @@ Using Bart Mellink's IBusBM library version 1.1.1
 https://github.com/bmellink/IBusBM
 Grab the IbusBM library from >Tools>Manage Libraries
 
-// Test Code for a FlySky FS-i6X transmitter and FS-iA6B receiver (10 channel)
+Test Code for a FlySky FS-i6X transmitter and FS-iA6B receiver (10 channel).  This implementation only reads values from the receiver and does not transmit battery levels, etc. back to the handheld transmitter.
 
 // Tested with Uno R3 and R3+ and is much less complex (one wire for all channels) and error prone than orginal PWM setup
 
